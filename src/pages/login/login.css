@@ -1,0 +1,61 @@
+.login {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 100%
+    ),
+    url("https://listsach.com/wp-content/uploads/2021/05/best-manga-anime-quotes-of-all-time-sad-anime-quotes-about-life-listsach.jpg");
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.adTitle {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #96d457;
+  margin-bottom: 20px;
+}
+
+.loginForm {
+  width: 300px;
+  /* height: 300px; */
+  padding: 30px;
+  border-radius: 5px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.loginInput {
+  height: 50px;
+  border-radius: 5px;
+  background-color: gray;
+  color: white;
+  padding-left: 10px;
+  margin-bottom: 5px;
+}
+
+.loginInput::placeholder {
+  color: lightgray;
+}
+
+.loginButton {
+  height: 50px;
+  border-radius: 5px;
+  background-color: rgb(255, 0, 102);
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 2px;
+  margin-left: 2px;
+  margin-bottom: 3px;
+  cursor: pointer;
+}

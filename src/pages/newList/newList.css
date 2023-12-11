@@ -1,0 +1,61 @@
+.newList {
+  flex: 4;
+  margin-left: 10px;
+}
+
+.addListForm {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.formLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.formRight {
+  margin: 10px 50px;
+}
+
+.addListItem {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.addListItem > label {
+  color: gray;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.addListItem > input {
+  padding: 10px;
+}
+
+.addListItem > select {
+  padding: 10px;
+}
+
+.listOption {
+  padding: 5px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.addListButton {
+  height: 50px;
+  width: 70px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: darkblue;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: center;
+}
