@@ -20,9 +20,13 @@ import { AuthContext } from "./context/authContext/AuthContext";
 import ListList from "./pages/listList/ListList";
 import List from "./pages/list/List";
 import NewList from "./pages/newList/NewList";
+import FeaturedInfo from "./components/featuredInfo/FeaturedInfo";
+import WidgetLg from "./components/widgetLg/WidgetLg";
+import WidgetSmt from "./components/widgetSmt/WidgetSmt";
 
 function App() {
   const { user } = useContext(AuthContext);
+
   return (
     <Router>
       <Routes>
@@ -39,6 +43,9 @@ function App() {
             <Sidebar />
             <Routes>
               <Route exact path="/" element={<Home />} />
+              <Route path="/analytics" element={<FeaturedInfo />} />
+              <Route path="/report" element={<WidgetLg />} />
+              <Route path="/new" element={<WidgetSmt />} />
               <Route path="/users" element={<UserList />} />
               <Route path="/user/:userId" element={<User />} />
               <Route path="/newUser" element={<NewUser />} />

@@ -41,6 +41,12 @@ const UserList = () => {
       },
     },
     { field: "email", headerName: "Email", width: 200 },
+    { field: "vipExpiration", headerName: "VIP Exp", width: 200 },
+    {
+      field: "vip",
+      headerName: "VIP",
+      width: 100,
+    },
     {
       field: "isAdmin",
       headerName: "Admin",

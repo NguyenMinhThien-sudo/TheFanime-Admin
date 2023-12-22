@@ -1,36 +1,59 @@
+import { useContext } from "react";
 import "./featuredInfo.css";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+// import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import { UserContext } from "../../context/userContext/UserContext";
+import { useEffect } from "react";
+import { getUsers } from "../../context/userContext/apiCalls";
 
 const FeaturedInfo = () => {
+  const { users, dispatch } = useContext(UserContext);
+
+  useEffect(() => {
+    getUsers(dispatch);
+  }, [dispatch]);
   return (
-    <div className="featured">
+    <div className="featured" style={{}}>
       <div className="featuredItem">
-        <span className="featuredTitle">Revanue</span>
+        <span className="featuredTitle">Total Revanue</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">$2,415</span>
+          <span className="featuredMoney">
+            ${users.reduce((sum, user) => sum + (user.vip ? 5 : 0), 0)},00
+          </span>
           <span className="featuredMoneyRate">
-            -11.4 <ArrowDownwardIcon className="featuredIcon negative" />
+            + <ArrowUpwardIcon className="featuredIcon" />
           </span>
         </div>
         <span className="featuredSub">Compared to last month</span>
       </div>
       <div className="featuredItem">
-        <span className="featuredTitle">Sales</span>
+        <span className="featuredTitle">VIP Members</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">$4,415</span>
+          <span className="featuredMoney">
+            TT:{" "}
+            {users
+              .reduce((sum, user) => sum + (user.vip ? 1 : 0), 0)
+              .toString()
+              .padStart(2, "0")}
+          </span>
           <span className="featuredMoneyRate">
-            -1.4 <ArrowDownwardIcon className="featuredIcon negative" />
+            + <ArrowUpwardIcon className="featuredIcon" />
           </span>
         </div>
         <span className="featuredSub">Compared to last month</span>
       </div>
       <div className="featuredItem">
-        <span className="featuredTitle">Cost</span>
+        <span className="featuredTitle">Normal Members</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">$2,225</span>
+          <span className="featuredMoney">
+            TT:{" "}
+            {users
+              .reduce((sum, user) => sum + (!user.vip ? 1 : 0), 0)
+              .toString()
+              .padStart(2, "0")}
+          </span>
           <span className="featuredMoneyRate">
-            +2.4 <ArrowUpwardIcon className="featuredIcon" />
+            + <ArrowUpwardIcon className="featuredIcon" />
           </span>
         </div>
         <span className="featuredSub">Compared to last month</span>

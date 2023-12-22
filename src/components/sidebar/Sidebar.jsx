@@ -2,13 +2,12 @@ import "./Sidebar.css";
 import {
   LineStyle as LineStyleIcon,
   Timeline as TimelineIcon,
-  TrendingUp as TrendingUpIcon,
   AccountBox as AccountBoxIcon,
   VideoLibrary as VideoLibraryIcon,
   BarChart as BarChartIcon,
-  MailOutline as MailOutlineIcon,
   DynamicFeed as DynamicFeedIcon,
   List as ListIcon,
+  AddReaction as AddReactionIcon,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
@@ -46,20 +45,33 @@ const Sidebar = () => {
                 Home
               </li>
             </Link>
-            <li
-              className="sidebarListItem"
-              ref={(el) => sidebarItemsRef.current.push(el)}
-            >
-              <TimelineIcon className="sidebarIcon" />
-              Analytics
-            </li>
-            <li
-              className="sidebarListItem"
-              ref={(el) => sidebarItemsRef.current.push(el)}
-            >
-              <BarChartIcon className="sidebarIcon" />
-              Reports
-            </li>
+            <Link to="/analytics" className="link">
+              <li
+                className="sidebarListItem"
+                ref={(el) => sidebarItemsRef.current.push(el)}
+              >
+                <TimelineIcon className="sidebarIcon" />
+                Analytics
+              </li>
+            </Link>
+            <Link to="/report" className="link">
+              <li
+                className="sidebarListItem"
+                ref={(el) => sidebarItemsRef.current.push(el)}
+              >
+                <BarChartIcon className="sidebarIcon" />
+                Reports
+              </li>
+            </Link>
+            <Link to="/new" className="link">
+              <li
+                className="sidebarListItem"
+                ref={(el) => sidebarItemsRef.current.push(el)}
+              >
+                <AddReactionIcon className="sidebarIcon" />
+                New
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -95,13 +107,6 @@ const Sidebar = () => {
                 Lists
               </li>
             </Link>
-            <li
-              className="sidebarListItem"
-              ref={(el) => sidebarItemsRef.current.push(el)}
-            >
-              <TrendingUpIcon className="sidebarIcon" />
-              News
-            </li>
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -110,13 +115,6 @@ const Sidebar = () => {
             <div className="sidebarLine"></div>
           </div>
           <ul className="sidebarList" onClick={handleMenuClick}>
-            <li
-              className="sidebarListItem"
-              ref={(el) => sidebarItemsRef.current.push(el)}
-            >
-              <MailOutlineIcon className="sidebarIcon" />
-              Mail
-            </li>
             <li
               className="sidebarListItem"
               ref={(el) => sidebarItemsRef.current.push(el)}

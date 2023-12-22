@@ -22,8 +22,6 @@ const NewMovie = () => {
     setMovie({ ...movie, [e.target.name]: value });
   };
 
-  //
-
   const upload = (items) => {
     items.forEach((item) => {
       if (item.file) {

@@ -10,6 +10,8 @@ const Topbar = () => {
   const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const handleLogout = () => {
     const accessLogout = window.confirm(
       "Bạn muốn đăng xuất khỏi trang quản trị TheFANIME?"
@@ -23,18 +25,14 @@ const Topbar = () => {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">TheFANIME admin</span>
+          <span className="logo">TheFANIME</span>
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">
             <NotificationsNoneIcon />
-            <span className="topIconBadge">2</span>
+            <span className="topIconBadge">0</span>
           </div>
-          <img
-            src="https://www.sgtiepthi.vn/wp-content/uploads/2022/01/270029116_1819941501728218_7459950680734546274_n.jpg"
-            alt=""
-            className="topAvatar"
-          />
+          <img src={user.profilePic} alt="" className="topAvatar" />
           <div className="topbarIconContainer" onClick={handleLogout}>
             <LogoutIcon />
           </div>

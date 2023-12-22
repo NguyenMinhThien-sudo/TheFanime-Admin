@@ -6,7 +6,7 @@ import WidgetSmt from "../../components/widgetSmt/WidgetSmt";
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 
-const Home = () => {
+const Home = ({ typeRec }) => {
   const MONTHS = useMemo(
     () => [
       "Jan",
@@ -32,7 +32,7 @@ const Home = () => {
         const res = await axios.get("http://localhost:8800/api/users/stats", {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZjgzYmRhMDhhYTIyZjY5ODgyN2IzNyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY5NDM2NDc3NywiZXhwIjoxNjk0Nzk2Nzc3fQ.UNniXSNlsZvMmwK6uVmaSg0S9AudUeFJjr4d_T65yLA",
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         const statsList = res.data.sort((a, b) => {
@@ -53,7 +53,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <FeaturedInfo />
+      <FeaturedInfo typeFeatured={typeRec} />
       <Chart data={useStats} title="User Analytics" grid dataKey="New User" />
       <div className="homeWidgets">
         <WidgetSmt />

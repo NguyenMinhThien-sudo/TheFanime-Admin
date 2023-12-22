@@ -54,11 +54,27 @@ const NewUser = () => {
         <div className="newUserItem">
           <label>Password</label>
           <input
-            type="text"
+            type="password"
             name="password"
             placeholder="Enter password..."
             onChange={handleChange}
           />
+        </div>
+        <div className="newUserItem">
+          <label>VIP Expiration</label>
+          <input
+            type="text"
+            name="vipExpiration"
+            placeholder="Auto update"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="newUserItem">
+          <label>VIP</label>
+          <select className="newUserSelect" name="vip" onChange={handleSelect}>
+            <option value="false">No</option>
+            <option value="true">Yes</option>
+          </select>
         </div>
         <div className="newUserItem">
           <label>Admin</label>

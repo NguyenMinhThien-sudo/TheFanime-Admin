@@ -13,6 +13,9 @@ const User = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
 
+  const expDate = new Date();
+  expDate.setDate(expDate.getDate() + 30);
+
   const { dispatch } = useContext(UserContext);
 
   useEffect(() => {
@@ -31,6 +34,9 @@ const User = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (formData.vip) {
+      formData.vipExpiration = expDate;
+    }
     try {
       const updatedUser = {
         ...formData,
@@ -70,6 +76,12 @@ const User = () => {
             <div className="userShowInfo">
               <AdminPanelSettingsIcon className="userShowIcon" />
               <span className="userShowInfoTitle">
+                {formData.vip ? "Yes" : "No"}
+              </span>
+            </div>
+            <div className="userShowInfo">
+              <AdminPanelSettingsIcon className="userShowIcon" />
+              <span className="userShowInfoTitle">
                 {formData.isAdmin ? "Yes" : "No"}
               </span>
             </div>
@@ -90,16 +102,6 @@ const User = () => {
                 />
               </div>
               <div className="userUpdateItem">
-                <label>Password</label>
-                <input
-                  type="text"
-                  name="password"
-                  value={formData.password || ""}
-                  onChange={handleChange}
-                  className="userUpdateInput"
-                />
-              </div>
-              <div className="userUpdateItem">
                 <label>Email</label>
                 <input
                   type="text"
@@ -108,6 +110,28 @@ const User = () => {
                   onChange={handleChange}
                   className="userUpdateInput"
                 />
+              </div>
+              <div className="userUpdateItem">
+                <label>VIP Expiration</label>
+                <input
+                  type="text"
+                  name="vipExpiration"
+                  value={formData.vip ? expDate : ""}
+                  onChange={handleChange}
+                  className="userUpdateInput"
+                />
+              </div>
+              <div className="userUpdateItem">
+                <label>VIP</label>
+                <select
+                  className="newUserSelect"
+                  name="vip"
+                  onChange={handleChange}
+                  value={formData.vip || ""}
+                >
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+                </select>
               </div>
               <div className="userUpdateItem">
                 <label>Admin</label>
