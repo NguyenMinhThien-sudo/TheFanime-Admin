@@ -27,6 +27,13 @@
   cursor: pointer;
   color: white;
   font-size: 16px;
+  transition: 0.2s ease-in;
+}
+.userAddButton:hover {
+  padding: 10px;
+  background-color: #eee;
+  color: rgb(11, 199, 139);
+  font-weight: bold;
 }
 
 .userContainer {
@@ -160,4 +167,11 @@
   background-color: rgb(58, 117, 227);
   color: white;
   font-weight: 600;
+  transition: 0.2s ease-in;
+}
+.userUpdateButton:hover {
+  padding: 10px;
+  background-color: #eee;
+  color: rgb(58, 117, 227);
+  font-weight: bold;
 }

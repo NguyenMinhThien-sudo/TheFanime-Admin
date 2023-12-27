@@ -40,4 +40,10 @@
   color: white;
   font-weight: 600;
   cursor: pointer;
+  transition: 0.2s ease-in;
+}
+.addMovieButton:hover {
+  background-color: #eee;
+  color: #06abb0;
+  font-weight: bold;
 }

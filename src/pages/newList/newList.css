@@ -58,4 +58,11 @@
   font-weight: 600;
   cursor: pointer;
   align-self: center;
+  transition: 0.2s ease-in;
+}
+.addListButton:hover {
+  padding: 10px;
+  background-color: #eee;
+  color: darkblue;
+  font-weight: bold;
 }

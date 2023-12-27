@@ -56,4 +56,10 @@
   border-radius: 10px;
   margin-top: 30px;
   cursor: pointer;
+  transition: 0.2s ease-in;
+}
+.newUserButton:hover {
+  background-color: #eee;
+  color: #06abb0;
+  font-weight: bold;
 }
