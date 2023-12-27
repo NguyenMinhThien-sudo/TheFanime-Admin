@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import "./featuredInfo.css";
-// import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { UserContext } from "../../context/userContext/UserContext";
 import { useEffect } from "react";

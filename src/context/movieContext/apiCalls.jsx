@@ -13,11 +13,12 @@ import {
   updateMovieStart,
   updateMovieSuccess,
 } from "./MovieActions";
+import { endpointApi } from "../../Endpoint";
 
 export const getMovies = async (dispatch) => {
   dispatch(getMoviesStart());
   try {
-    const res = await axios.get("http://localhost:8800/api/movies", {
+    const res = await axios.get(`${endpointApi}/api/movies`, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
@@ -32,7 +33,7 @@ export const getMovies = async (dispatch) => {
 export const createMovie = async (movie, dispatch) => {
   dispatch(createMovieStart());
   try {
-    const res = await axios.post("http://localhost:8800/api/movies", movie, {
+    const res = await axios.post(`${endpointApi}/api/movies`, movie, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
@@ -48,7 +49,7 @@ export const updateMovie = async (movie, dispatch) => {
   dispatch(updateMovieStart());
   try {
     const res = await axios.put(
-      `http://localhost:8800/api/movies/${movie._id}`,
+      `${endpointApi}/api/movies/${movie._id}`,
       movie,
       {
         headers: {
@@ -67,7 +68,7 @@ export const updateMovie = async (movie, dispatch) => {
 export const deleteMovie = async (id, dispatch) => {
   dispatch(deleteMovieStart());
   try {
-    await axios.delete("http://localhost:8800/api/movies/" + id, {
+    await axios.delete(`${endpointApi}/api/movies/` + id, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },

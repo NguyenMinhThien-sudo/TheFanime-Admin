@@ -5,6 +5,7 @@ import WidgetLg from "../../components/widgetLg/WidgetLg";
 import WidgetSmt from "../../components/widgetSmt/WidgetSmt";
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
+import { endpointApi } from "../../Endpoint";
 
 const Home = ({ typeRec }) => {
   const MONTHS = useMemo(
@@ -29,7 +30,7 @@ const Home = ({ typeRec }) => {
   useEffect(() => {
     const getStats = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/api/users/stats", {
+        const res = await axios.get(`${endpointApi}/api/users/stats`, {
           headers: {
             token:
               "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,

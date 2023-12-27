@@ -58,4 +58,15 @@
   margin-left: 2px;
   margin-bottom: 3px;
   cursor: pointer;
+  transition: 0.3s ease-in;
+}
+.loginButton:hover {
+  border-bottom: 7px solid rgb(255, 0, 102);
+  border-right: 7px solid rgb(255, 0, 102);
+  background-color: white;
+  color: rgb(255, 0, 102);
+}
+.loginButton:active {
+  border-bottom: 1px solid rgb(255, 0, 102);
+  border-right: 1px solid rgb(255, 0, 102);
 }

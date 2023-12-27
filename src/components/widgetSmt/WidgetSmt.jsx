@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./widgetSmt.css";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import axios from "axios";
+import { endpointApi } from "../../Endpoint";
 
 const WidgetSmt = () => {
   const [newUsers, setNewUsers] = useState([]);
@@ -9,16 +10,12 @@ const WidgetSmt = () => {
   useEffect(() => {
     const getNewUsers = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:8800/api/users?new=true",
-          {
-            headers: {
-              token:
-                "Bearer " +
-                JSON.parse(localStorage.getItem("user")).accessToken,
-            },
-          }
-        );
+        const res = await axios.get(`${endpointApi}/api/users?new=true`, {
+          headers: {
+            token:
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+          },
+        });
         setNewUsers(res.data);
       } catch (err) {
         console.log(err);

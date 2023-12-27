@@ -30,11 +30,11 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         <Route
           path="/"
           element={user ? <Navigate to="/" /> : <Navigate to="/login" />}
         />
+        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
       </Routes>
       {user && (
         <>

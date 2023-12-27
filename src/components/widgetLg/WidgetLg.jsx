@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./widgetLg.css";
 import { useEffect } from "react";
 import axios from "axios";
+import { endpointApi } from "../../Endpoint";
 
 const WidgetLg = () => {
   const [useStats, setUseStats] = useState([]);
@@ -10,7 +11,7 @@ const WidgetLg = () => {
     const getStats = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8800/api/users/transactions-stats",
+          `${endpointApi}/api/users/transactions-stats`,
           {
             headers: {
               token:

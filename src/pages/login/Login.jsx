@@ -12,12 +12,9 @@ const Login = () => {
     e.preventDefault();
     try {
       await login({ email, password }, dispatch);
-      // Đăng nhập thành công, có thể thực hiện hành động tiếp theo, chẳng hạn chuyển hướng đến trang chính
     } catch (error) {
       console.error("Đã xảy ra lỗi:", error);
-      // Hiển thị thông báo lỗi cho người dùng
     }
-    // login({ email, password }, dispatch);
   };
   return (
     <div className="login">

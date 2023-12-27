@@ -13,11 +13,12 @@ import {
   updateUserStart,
   updateUserSuccess,
 } from "./UserActions";
+import { endpointApi } from "../../Endpoint";
 
 export const getUsers = async (dispatch) => {
   dispatch(getUsersStart());
   try {
-    const res = await axios.get("http://localhost:8800/api/users", {
+    const res = await axios.get(`${endpointApi}/api/users`, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
@@ -32,7 +33,7 @@ export const getUsers = async (dispatch) => {
 export const createUser = async (user, dispatch) => {
   dispatch(createUserStart());
   try {
-    const res = await axios.post("http://localhost:8800/api/users", user, {
+    const res = await axios.post(`${endpointApi}/api/users`, user, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
@@ -47,16 +48,11 @@ export const createUser = async (user, dispatch) => {
 export const updateUser = async (user, dispatch) => {
   dispatch(updateUserStart());
   try {
-    const res = await axios.put(
-      `http://localhost:8800/api/users/${user._id}`,
-      user,
-      {
-        headers: {
-          token:
-            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-        },
-      }
-    );
+    const res = await axios.put(`${endpointApi}/api/users/${user._id}`, user, {
+      headers: {
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+    });
     dispatch(updateUserSuccess(res.data));
   } catch (err) {
     dispatch(updateUserFailure());
@@ -67,7 +63,7 @@ export const updateUser = async (user, dispatch) => {
 export const deleteUser = async (id, dispatch) => {
   dispatch(deleteUserStart());
   try {
-    await axios.delete("http://localhost:8800/api/users/" + id, {
+    await axios.delete(`${endpointApi}/api/users/` + id, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },

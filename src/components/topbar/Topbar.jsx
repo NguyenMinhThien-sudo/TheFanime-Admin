@@ -12,6 +12,8 @@ const Topbar = () => {
 
   const user = JSON.parse(localStorage.getItem("user"));
 
+  const profilePic = user ? user.profilePic : "/images/vs.jpg";
+
   const handleLogout = () => {
     const accessLogout = window.confirm(
       "Bạn muốn đăng xuất khỏi trang quản trị TheFANIME?"
@@ -32,7 +34,7 @@ const Topbar = () => {
             <NotificationsNoneIcon />
             <span className="topIconBadge">0</span>
           </div>
-          <img src={user.profilePic} alt="" className="topAvatar" />
+          <img src={profilePic} alt="" className="topAvatar" />
           <div className="topbarIconContainer" onClick={handleLogout}>
             <LogoutIcon />
           </div>
