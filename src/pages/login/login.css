@@ -10,23 +10,27 @@
   background-size: cover;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .adTitle {
+  width: 340px;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+  background-color: black;
   text-align: center;
   font-size: 30px;
   font-weight: bold;
-  color: #96d457;
-  margin-bottom: 20px;
+  color: #7fcd32;
 }
 
 .loginForm {
   width: 300px;
   /* height: 300px; */
   padding: 30px;
-  border-radius: 5px;
+  border-radius: 0 0 5px 5px;
   background-color: black;
   display: flex;
   flex-direction: column;

@@ -18,8 +18,10 @@ const Login = () => {
   };
   return (
     <div className="login">
+      <div className="adTitle">
+        <span>Quản Trị Viên</span>
+      </div>
       <form className="loginForm">
-        <span className="adTitle">Quản Trị Viên</span>
         <input
           type="text"
           placeholder="Email admin"
